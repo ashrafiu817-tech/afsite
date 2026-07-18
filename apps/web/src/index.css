@@ -5,6 +5,18 @@
 @tailwind utilities;
 
 :root {
+<<<<<<< HEAD
+  --bg: 0 0% 97%;              /* clean neutral white */
+  --ink: 0 0% 8%;              /* near-black, matches sign */
+  --ink-soft: 0 0% 26%;
+  --paper: 0 0% 100%;
+  --saffron: 358 82% 46%;      /* sign red, used where "accent" was saffron */
+  --pomegranate: 355 78% 42%;  /* bold sign red */
+  --pistachio: 78 28% 42%;
+  --indigo: 220 38% 24%;
+  --gold: 38 62% 52%;
+  --line: 0 0% 84%;
+=======
   --bg: 32 28% 94%;           /* warm parchment */
   --ink: 22 30% 12%;          /* deep walnut */
   --ink-soft: 22 18% 26%;
@@ -15,6 +27,7 @@
   --indigo: 220 38% 24%;
   --gold: 38 62% 52%;
   --line: 28 22% 80%;
+>>>>>>> a43656aea43965f2cb4f1846f2b17fa2e0a8f5c4
 
   --background: var(--bg);
   --foreground: var(--ink);
@@ -46,10 +59,15 @@ html, body {
 .pattern-stripe {
   background-image: repeating-linear-gradient(
     45deg,
+<<<<<<< HEAD
+    hsl(var(--pomegranate)) 0 10px,
+    hsl(var(--ink)) 10px 20px
+=======
     hsl(var(--pomegranate) / 0.9) 0 8px,
     hsl(var(--saffron) / 0.9) 8px 16px,
     hsl(var(--indigo) / 0.9) 16px 24px,
     hsl(var(--paper)) 24px 32px
+>>>>>>> a43656aea43965f2cb4f1846f2b17fa2e0a8f5c4
   );
 }
 
