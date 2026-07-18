@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 0 0% 97%;              /* clean neutral white */
+  --ink: 0 0% 8%;              /* near-black, matches sign */
+  --ink-soft: 0 0% 26%;
+  --paper: 0 0% 100%;
+  --saffron: 358 82% 46%;      /* sign red, used where "accent" was saffron */
+  --pomegranate: 355 78% 42%;  /* bold sign red */
+  --pistachio: 78 28% 42%;
+  --indigo: 220 38% 24%;
+  --gold: 38 62% 52%;
+  --line: 0 0% 84%;
+
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --radius: 0.25rem;
+}
+
+* { -webkit-font-smoothing: antialiased; }
+
+html, body {
+  background: hsl(var(--bg));
+  color: hsl(var(--ink));
+  font-family: 'Inter', sans-serif;
+  overflow-x: clip;
+}
+
+.font-display { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: -0.01em; }
+.font-script { font-family: 'Caveat', cursive; }
+
+/* Afghan-inspired geometric pattern (subtle) */
+.pattern-afghan {
+  background-color: hsl(var(--bg));
+  background-image:
+    radial-gradient(hsl(var(--pomegranate) / 0.08) 1.2px, transparent 1.2px),
+    radial-gradient(hsl(var(--saffron) / 0.06) 1.2px, transparent 1.2px);
+  background-size: 28px 28px, 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+.pattern-stripe {
+  background-image: repeating-linear-gradient(
+    45deg,
+    hsl(var(--pomegranate)) 0 10px,
+    hsl(var(--ink)) 10px 20px
+  );
+}
+
+.grain::before {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.1 0 0 0 0 0.05 0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.35'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+/* Marker underline */
+.marker-underline {
+  background-image: linear-gradient(transparent 70%, hsl(var(--saffron) / 0.55) 70%);
+  background-repeat: no-repeat;
+  padding: 0 0.15em;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 38s linear infinite; }
+
+@keyframes drift {
+  0%,100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(-1deg); }
+}
+.animate-drift { animation: drift 6s ease-in-out infinite; }
+
+.divider-ornament {
+  display: flex; align-items: center; justify-content: center;
+  color: hsl(var(--pomegranate));
+  letter-spacing: 0.4em; font-size: 0.7rem;
+}
+.divider-ornament::before, .divider-ornament::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--ink) / 0.25), transparent);
+  margin: 0 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-drift { animation: none; }
+}
